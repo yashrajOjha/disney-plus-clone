@@ -170,6 +170,7 @@ const NavMenu= styled.div`
         padding:2px 0px;
         white-space:nowrap;
         position:relative;
+        margin-left:10px;
     
 
     &:before{

@@ -73,7 +73,7 @@ const Container=styled.div`
     min-height:calc(100vh-250px);
     overflow-x:hidden;
     display:block;
-    top:72px;
+    margin-left:10px;
     padding:0 calc(3.5vw +5px);
 `;
 
@@ -103,7 +103,6 @@ const ImageTitle = styled.div`
     display:flex;
     -webkit-box-pack:start;
     justify-content:flex-start;
-    margin:0px auto;
     height: 30vw;
     min-height:170px;
     padding-bottom:24px;
