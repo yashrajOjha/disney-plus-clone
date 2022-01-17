@@ -10,7 +10,7 @@ const Header=(props) =>{
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const userName= useSelector(selectUserName);
+    const userName= useSelector(selectUserName); //grab the name
     const userPhoto = useSelector(selectUserPhoto);
 
     useEffect(() =>{
@@ -23,12 +23,11 @@ const Header=(props) =>{
     },[userName]);
 
 
-    const handleAuth=() =>{
+    const signIn=() =>{
         if(!userName){
-        auth
-        .signInWithPopup(provider)
+        auth.signInWithPopup(provider)
         .then((result) =>{
-            setUser(result.user);
+            setUser(result.user); //send the value to the userSlice
 
         })
         .catch((error) => {
@@ -59,8 +58,8 @@ const Header=(props) =>{
             <img src ="/images/logo.svg" alt="Disney+"/>
         </Logo>
 
-        {!userName ? (
-            <Login onClick={handleAuth}>Login</Login>
+        {!userName ? ( //if there is no username show the Login button otherwise show navmenu
+            <Login onClick={signIn}>Login</Login>
            ) : (
            <>
         <NavMenu>
@@ -93,7 +92,7 @@ const Header=(props) =>{
         <SignOut>
         <UserImg src={userPhoto} alt={userName}/>
         <DropDown>
-            <span onClick={handleAuth}>Sign out</span>
+            <span onClick={signIn }>Sign out</span>
         </DropDown>
         </SignOut>
        

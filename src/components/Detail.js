@@ -6,15 +6,15 @@ import db from "../firebase"
 const Detail = (props)=>{
 
     const {id} =useParams();
-    const [detailData, setDetailData] = useState({});
+    const [movie, setMovie] = useState({}); //using state because we arent reusing the data, its like redux for individual component
 
     useEffect(()=>{
         db.collection("movies")
-        .doc(id)
+        .doc(id) //grab the movie with this specific id
         .get()
         .then((doc) =>{
-            if(doc.exists){
-                setDetailData(doc.data());
+            if(doc.exists){ //if there exists data, then save the movie data
+                setMovie(doc.data());
 
             } else{
                 console.log("no such document in firebase");
@@ -29,12 +29,12 @@ const Detail = (props)=>{
         
             <Container>
                 <Background>
-                    <img src={detailData.backgroundImg} alt={detailData.title}/>
+                    <img src={movie.backgroundImg} alt={movie.title}/>
                 </Background>
                 <ImageTitle>
                     <img 
-                    src={detailData.titleImg}
-                     alt={detailData.title}/>
+                    src={movie.titleImg}
+                     alt={movie.title}/>
                 </ImageTitle>
                 <ContentMeta>
                     <Controls>
@@ -60,8 +60,8 @@ const Detail = (props)=>{
                             </div>
                         </GroupWatch>
                     </Controls>
-                    <SubTiltle>{detailData.subTitle}</SubTiltle>
-                    <Description>{detailData.description}</Description>
+                    <SubTiltle>{movie.subTitle}</SubTiltle>
+                    <Description>{movie.description}</Description>
                 </ContentMeta>
                 </Container>
         

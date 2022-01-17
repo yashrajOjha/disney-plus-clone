@@ -15,13 +15,14 @@ const userSlice = createSlice({
             state.name = action.payload.name;
             state.email = action.payload.email;
             state.photo = action.payload.photo;
-
+            //one user has logged in 
         },
 
         setSignOutState:(state) => {
             state.name=null;
             state.email=null;
             state.photo=null;
+            //after user logs out then change the state to null
         }
     },
 })

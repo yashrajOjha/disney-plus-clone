@@ -20,7 +20,7 @@ const Home = (props) =>{
     let newDisneys= [];
     let originals= [];
     let trending = [];
-
+    //In Home, we grab data from db, dispatch it to the store and in Movies.js , we access it from the store.
  useEffect(() => {
      db.collection('movies').onSnapshot((snapshot) =>{
          snapshot.docs.map((doc) => {
