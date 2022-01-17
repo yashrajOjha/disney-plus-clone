@@ -103,6 +103,8 @@ const ImageTitle = styled.div`
     display:flex;
     -webkit-box-pack:start;
     justify-content:flex-start;
+    margin-top:40px;
+    margin-left:20px;
     height: 30vw;
     min-height:170px;
     padding-bottom:24px;
